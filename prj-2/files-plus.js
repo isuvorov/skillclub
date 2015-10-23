@@ -27,19 +27,50 @@ var files = [
 var sum = 0;
 var i = 3;
 
-var async = require("async");
+//var async = require("async");
 
 
-async.map(files, require("./fs2").readFile, function(err, results){
+//async.map(files, require("./fs2").readFile, function(err, results){
+//
+//    var sum = 0;
+//    for(i in results){
+//        sum += parseInt(results[i]);
+//    }
+//
+//    console.log({sum:sum});
+//    // results is now an array of stats for each file
+//});
 
-    var sum = 0;
-    for(i in results){
-        sum += parseInt(results[i]);
-    }
+var Q = require("q");
 
-    console.log({sum:sum});
-    // results is now an array of stats for each file
+var promises = files.map(function (filename) {
+    var deferred = Q.defer();
+    require("fs").readFile(filename, function (error, text) {
+        if (error) {
+            deferred.reject(new Error(error));
+        } else {
+            deferred.resolve(text);
+        }
+    });
+    return deferred.promise;
 });
+
+
+Q.all(promises)
+    .catch(function (error) {
+        console.log({error: error})
+    })
+    .done(function (results) {
+        var sum = 0;
+        results.forEach(function (result) {
+            sum += parseInt(result);
+        });
+        console.log("done", sum);
+    });
+
+
+
+
 //
 //
 //require("./fs2").readFile(files[0], function (err, data) {
