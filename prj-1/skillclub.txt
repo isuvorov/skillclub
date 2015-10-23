@@ -1,0 +1,13 @@
+1	Hello World		18.10.2015	18.00
+2	Native JavaScript & NodeJS,		23.10.2015	19.00
+3	NPM		25.10.2015	12.00
+4	ConnectJS => ExpressJS => SailsJS	 	30.10.2015	19.00
+5	Mongo + ORM + SailsJS		01.11.2015	12.00
+6	SailsJS is REST API Server		06.11.2015	19.00
+7	Awesome Frontend		08.11.2015	12.00
+8	AngularJS, part 1		13.11.2015	19.00
+9	AngularJS, part 2		15.11.2015	12.00
+10	SailsJS + AngularJS + SocketIO, part 1		20.11.2015	19.00
+11	SailsJS + AngularJS + SocketIO, part 2		22.11.2015	12.00
+12	Bonus 1		27.11.2015	19.00
+13	Bonus 2		29.11.2015	12.00
