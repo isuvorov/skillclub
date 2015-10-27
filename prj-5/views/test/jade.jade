@@ -1,0 +1,13 @@
+.super 
+	h1 Super
+	p Hello #{name} world
+
+	for user in users
+		.user
+			h2.name= user.name ? user.name : "Аноним" 
+			p.createdAt= new Date(user.createdAt).getTime()
+
+	pre= JSON.stringify(users)
+
+
+
