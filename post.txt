@@ -1,0 +1,148 @@
+Познакомимся с пакетным менеджером. Проведу обзор самых популярных пакетов.
+Расскажу паттерны и алгоритмы на JavaScript
+
+<!--more-->
+## Современный стандарт, «use strict»
+
+* [https://learn.javascript.ru/strict-mode] 
+* [Что можно, а что нельзя?](http://java-script.limewebs.com/strictMode/test_hosted.html)
+
+-----
+
+## NPM
+
+### Фреймворки
+* [Express](http://expressjs.com/ru/) 
+* [Sails](http://sailsjs.org/) 
+* [Harp](http://harpjs.com/) 
+* [Keystone](http://keystonejs.com/) - CMS
+
+
+### Алгоритмы
+* [lodash](https://lodash.com/) 
+* [underscore](http://underscorejs.org/) 
+* [async](https://github.com/caolan/async) 
+#### Промисы
+* [promise](https://github.com/then/promise)
+* [vow](https://github.com/dfilatov/vow)
+* [Q](https://github.com/kriskowal/q)
+
+* [Азы промисов](https://learn.javascript.ru/promise)
+* [Чем хороши промисы, по сравнению с обычными Callback'ами](http://habrahabr.ru/post/242767/)
+* [Фишки промисов](https://strongloop.com/strongblog/how-to-compose-node-js-promises-with-q/)
+
+
+### Фичи
+* [sockert.io] 
+* [node_redis] 
+* [memcached](https://github.com/3rd-Eden/memcached)
+* [request](https://github.com/request/request) 
+* [restler](https://github.com/danwrong/restler)
+* [nodgcm, push-notify] 
+* [swarm] 
+* [moment](http://momentjs.com/) 
+* [nodemailer](https://github.com/andris9/Nodemailer)
+* [nodeglob](https://github.com/isaacs/node-glob)
+* [validator](http://validatejs.org/)
+** [(https://www.npmjs.com/package/validator)] 
+* [telegram-bot] 
+* [csv-string](https://www.npmjs.com/package/csv-string) 
+
+#### Push
+* [node-gcm](https://github.com/ToothlessGear/node-gcm) - A NodeJS wrapper library port to send data to Android devices via Google Cloud Messaging
+* [node-apn](https://github.com/argon/node-apn) - Apple Push Notification module for Node.js
+
+#### CRON
+##### node-cron
+Библиотека управления задачами запускающимеся по времени, синтаксис Cron
+
+* [GitHub](https://github.com/ncb000gt/node-cron)
+* Установка NPM: `npm install cron`
+
+##### node-schedule
+Welcome to node-schedule - the open-source, cron-like and not-cron-like job scheduler for Node.js.
+
+* [GitHub](https://github.com/tejasmanohar/node-schedule)
+* Установка NPM: `npm install node-schedule`
+
+### Авторизация, криптография
+* [passport] 
+* [jwt, jsonwebtoken, ] 
+* [bcryptjs] 
+
+
+### КПД
+* [winston] 
+* [nodemon, pm2] 
+* [coffee-script] 
+* [include-all] 
+* [rimraf] 
+* [brototype] 
+* [main-bower-files] 
+
+### Тесты
+* [mocha] 
+* [supertest (https://github.com/visionmedia/supertest)] 
+
+### Базы данных
+* [node-mongodb-native] 
+* [mongoose] 
+* [Waterline] 
+* 
+
+### Литература
+* [(http://habrahabr.ru/post/165017/)] 
+* [(http://nodeguide.ru/doc/modules-you-should-know/)] 
+
+-----
+
+## Разработка
+* mongolab
+* robomongo
+* heroku
+
+### Docker, docker-compose
+[js title="mongo98/docker-compose.yaml"]
+mongo:
+   image: mongo:2.6
+   restart: always
+   mem_limit: 100000000
+   command: "--smallfiles"
+   volumes:
+    - ../../cloud_data/quizly/mongo99:/data/db
+   working_dir: /data
+   ports:
+      - "10099:27017"
+[/js]
+[js title="mongo98/run.sh"]
+docker-compose build
+docker-compose up
+[/js]
+
+-----
+
+## Паттерны
+
+
+### Наследование
+* (https://learn.javascript.ru/class-inheritance)
+* (https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Object/proto)
+* (http://habrahabr.ru/post/140810/)
+* (http://habrahabr.ru/post/175029/#classes
+
+
+
+---------
+
+* Наследование прототипное
+* Наследование функциональное
+* Приватные функции и переменные
+* 1) создать её прям в экшене анонимной
+* 2) положить её чуть выже modules.exports = {}
+* 3) положить выше exports, контекстнозависимая
+
+
+
+# Задача: создать экшн контроллера, мы ему id, или пустоту, или id как массив, он нам в ответ
+
+
