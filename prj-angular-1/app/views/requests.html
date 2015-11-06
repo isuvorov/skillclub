@@ -1,0 +1,13 @@
+<div ng-show="requests == null ">
+  Загрузка
+</div>
+<div ng-show="requests.length == 0">
+  Заявок пока нет
+</div>
+<div ng-show="requests.length > 0">
+  <div ng-repeat="request in requests">
+    <h2>Фио: {{request.fio}}</h2>
+
+    <p>Цена: {{request.price}}</p>
+  </div>
+</div>

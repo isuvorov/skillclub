@@ -1,5 +1,80 @@
-<ul>
-  <li ng-repeat="item in items">
-    {{ $index + 1 }} {{ item }}
-  </li>
-</ul>
+<style>
+  .input__error{
+    border: 1px red solid;
+    color:red;
+  }
+  .input__valid{
+    border: 1px green solid;
+    color:green;
+  }
+</style>
+
+<hr/>
+
+<form ng-submit="submit($scope)" ng-controller="FormCtrl">
+  <p>
+    ФИО,
+    <span style="color:red;">{{ error2 }}</span><br/>
+    <input ng-model="fio"  ng-class="{input__error: error2 && dirty, input__valid: !error2 && dirty}">
+  </p>
+
+  <p>
+    Количество дней,
+    <span style="color:red;">{{ error1 }}</span>
+    <br>
+    <!--//class="input__error" -->
+    <input ng-model="days"  ng-class="{input__error: error1  && dirty , input__valid: !error1  && dirty}">
+  </p>
+
+
+  <input type="submit" />
+</form>
+
+
+
+
+<div ng-controller="CheckCtrl" >
+
+  <!--<input type="checkbox" ng-model="show">-->
+
+  <div ng-show="form.show">
+    <h1>Уважаемый {{ form.fio }}, цена заказа: {{ form.price }}руб</h1>
+  </div>
+
+</div>
+
+
+<hr/>
+
+
+<div style="display: none">
+  {{ field * field }}
+
+  <p>
+    input1:
+    <input ng-model="field">
+  </p>
+
+  <p>
+    input2
+    <input ng-model="field">
+  </p>
+
+  <p ng-controller="FieldCtrl">
+    input3
+    <input ng-model="field">
+
+
+    <button ng-click="field = field + 1">
+      alert
+    </button>
+  </p>
+
+
+  <ul>
+    <li ng-repeat="item in items">
+      {{ $index + 1 }} {{ item }}
+    </li>
+  </ul>
+
+</div>

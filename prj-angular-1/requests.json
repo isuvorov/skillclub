@@ -1,0 +1,102 @@
+{
+  "request": [
+    {
+      "id": 1,
+      "fio": "json-server",
+      "price": 12341231321234
+    },
+    {
+      "id": 2,
+      "fio": "json-server 123123",
+      "price": 123412123134
+    },
+    {
+      "id": 3,
+      "fio": "json-server 1231",
+      "price": 12341234
+    },
+    {
+      "fio": "asdasdasd",
+      "id": 4
+    },
+    {
+      "id": 5
+    },
+    {
+      "show": true,
+      "fio": "qqweqw",
+      "price": 12312000,
+      "id": 6
+    },
+    {
+      "show": true,
+      "price": null,
+      "id": 7
+    },
+    {
+      "show": true,
+      "fio": "qweqweqw",
+      "price": 123123000,
+      "id": 8
+    },
+    {
+      "show": true,
+      "fio": "sdfsdf",
+      "price": 123123000,
+      "id": 9
+    },
+    {
+      "show": true,
+      "fio": "qwe",
+      "price": 123000,
+      "id": 10
+    },
+    {
+      "show": false,
+      "fio": "asdasd",
+      "price": 123000,
+      "id": 11
+    },
+    {
+      "show": true,
+      "fio": "asdasd",
+      "price": 123000,
+      "id": 12
+    },
+    {
+      "show": true,
+      "fio": "asdasd",
+      "price": 123000,
+      "id": 13
+    },
+    {
+      "show": true,
+      "fio": "asdasd",
+      "price": 123000,
+      "id": 14
+    },
+    {
+      "show": false,
+      "fio": 123,
+      "price": 3123123000,
+      "id": 15
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
