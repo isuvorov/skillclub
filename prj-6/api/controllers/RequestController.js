@@ -1,10 +1,11 @@
 var RequestController;
 module.exports = RequestController = {
     index: function (req, res) {
-        if (err) {
-            return res.serverError(err);
-        }
         Request.find({}, function (err, requests) {
+
+            if (err) {
+                return res.serverError(err);
+            }
             return res.json(requests);
         });
         //return res.send("request/index");
@@ -27,3 +28,7 @@ module.exports = RequestController = {
     }
 
 };
+
+// blueprints
+// autoreload
+//

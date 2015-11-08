@@ -23,6 +23,7 @@
     "rc": "~0.5.0",
     "sails": "~0.11.2",
     "sails-disk": "~0.10.0",
+    "sails-hook-autoreload": "sgress454/sails-hook-autoreload",
     "sails-mongo": "^0.11.4"
   },
   "scripts": {
