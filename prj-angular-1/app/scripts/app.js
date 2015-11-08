@@ -44,6 +44,10 @@ angular
         templateUrl: 'views/requests.html',
         controller: 'RequestsCtrl'
       })
+      .when('/filter', {
+        templateUrl: 'views/filter.html',
+        controller: 'FilterCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
@@ -53,6 +57,22 @@ angular
 
 
     $scope.field = $rootScope.field * 2;
+
+  })
+  .controller('FilterCtrl', function ($scope, $rootScope) {
+    $scope.items = [
+      "qweqweqw",
+      "asdasdasddas",
+      "zxczxczxc",
+      "hgjghjghjghj"
+    ];
+
+    $scope.add = function(item){
+      $scope.items.push(item);
+      $scope.new = "";
+    }
+
+
 
   })
 
@@ -70,7 +90,7 @@ angular
     if(!$rootScope.requests) {
       $rootScope.requests = null;
 
-      Restangular.allUrl('requests', 'http://localhost:3000/request').getList().then(function (requests) {
+      Restangular.allUrl('requests', '/request/').getList().then(function (requests) {
         $rootScope.requests = requests;
 
       });
@@ -113,7 +133,7 @@ angular
       $rootScope.form.price = price($scope.days);
 
       var request = $rootScope.form;
-      Restangular.allUrl('requests', 'http://localhost:3000/request').post(request/*, {query: 123123}, {header:123123}*/).then(function (res) {
+      Restangular.allUrl('requests', '/request/new').post(request/*, {query: 123123}, {header:123123}*/).then(function (res) {
 
         $rootScope.form.show = true;
 

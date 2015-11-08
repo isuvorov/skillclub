@@ -1,0 +1,60 @@
+<a href="/asdadfagasf"  ng-href="/{{ aasdasdasd }}" onClick="return false;">
+  link
+</a>
+
+
+<a ng-href="#/{{12312312}}">
+  link
+</a>
+
+<a href="{{12312312}}">
+  link
+</a>
+
+
+<img src="{{file}}" />
+<img ng-src="{{file}}" />
+
+
+
+<table class="table table-bordered table-striped">
+  <tr>
+    <th>
+      #
+    </th>
+    <th>
+      name
+      <br> <input ng-model="filter">
+    </th>
+  </tr>
+  <tr ng-repeat="item in (items  | filter:filter)   track by $index">
+    <td>
+      {{ $index + 1 }}
+    </td>
+    <td>
+      {{ item }}
+
+
+    </td>
+    <td>
+      <button ng-click="items.splice($index, 1)">
+        [x]
+      </button>
+
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+    </td>
+    <td>
+
+      <input ng-model="new">
+      <button ng-click="add(new)"> Добавить
+      </button>
+      <button ng-click="items.push(new)"> Добавить2
+      </button>
+    </td>
+  </tr>
+</table>
