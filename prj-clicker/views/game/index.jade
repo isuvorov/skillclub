@@ -2,6 +2,7 @@ html
   body
     // Default home page
     link(type='text/css', href='http://sailsjs.org/styles/fonts.css', rel='stylesheet')
+    script(src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js")
     style.
       .user {
         display:inline-block;
@@ -17,6 +18,9 @@ html
       .user__name{
         font-weight:bold;
         text-align: center;
+      }
+      .user_active{
+        background-color:rgb(17, 135, 152);
       }
 
       /* Styles included inline since you'll probably be deleting this page anyway */
@@ -39,15 +43,54 @@ html
           li.clearfix
             .step
               .sprite.one
-              for user in game.state.users
-                .user(onClick="alert(123)")
-                  .user__name= user.name
-                  .user__gold= user.gold
-                    | $
-                  .user__score= user.score
-                    |  scores
-                  .user__clicks= user.clicks
-                    |  clicks
+              if authUser
+                for user in game.state.users
+                  div(onClick='steal("' + user.id + '")' id=user.id class=authUser.id == user.id  ? "user_active user" : "user ")
+                    .user__name= user.name
+                    .user__gold= user.gold
+                      | $
+                    .user__score= user.score
+                      |  scores
+                    .user__clicks= user.clicks
+                      |  clicks
+
+                script.
+                  var userId = "#{authUser.id}";
+                  $(function(){
+                    io.socket.get("/game/test2", {qwe: 123}, function (data, jwres) {
+                      console.log("/game/test2", data);
+                    });
+
+                    io.socket.on("setState", setState)
+                  });
+
+                  function setState(state) {
+                    console.log("setState", state);
+                    for (var userId in state.users) {
+                      var user = state.users[userId];
+                      $("#" + user.id + " .user__gold").text(user.gold);
+                      $("#" + user.id + " .user__score").text(user.score);
+                      $("#" + user.id + " .user__clicks").text(user.clicks);
+                    }
+                  }
+                  function steal(userIdFrom){
+                    //                  alert(123)
+                    $.ajax({
+                      method: "POST",
+                      url: "/game/steal?_=" + new Date(),
+                      contentType: "application/json",
+                      data: JSON.stringify({userIdFrom: userIdFrom, userIdTo: userId}),
+                      dataType: "json"
+                    })
+                    .success(setState);
+                  }
+              else
+                form(action="/game/auth")
+                  p ИМЯ
+                  input(name="name")
+                  input(type="submit")
+
+
 
 
         //.links
@@ -73,4 +116,3 @@ html
         //    a(target='_blank', href='http://webchat.freenode.net/')
         //      li IRC (#sailsjs on freenode)
     script(src="/js/dependencies/sails.io.js")
-    script(src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js")
